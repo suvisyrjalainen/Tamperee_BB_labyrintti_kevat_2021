@@ -5,7 +5,9 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     public Animator anim;
-    // Start is called before the first frame update
+
+    private float horisontaalinenPyorinta = 0;
+
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -14,15 +16,21 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Eteen ja sivulle liikkuminen
         CharacterController hahmokontrolleri = GetComponent<CharacterController>();
-
-        float horizontal = Input.GetAxis("Horizontal") * 5;
-        float vertical = Input.GetAxis("Vertical") * 5;
-
+        float horizontal = Input.GetAxis("Horizontal") * 3;
+        float vertical = Input.GetAxis("Vertical") * 3;
         Vector3 nopeus = new Vector3(horizontal, 0, vertical);
+        
 
-        //hahmokontrolleri.SimpleMove(nopeus);
+        //hiiren x verran pyöriminen
+        horisontaalinenPyorinta += Input.GetAxis("Mouse X");
+        transform.localRotation = Quaternion.Euler(0, horisontaalinenPyorinta, 0);
+        
+        nopeus = transform.rotation * nopeus;
         hahmokontrolleri.Move(nopeus * Time.deltaTime);
+
+        
 
         if (Input.GetAxis("Vertical") != 0)
         {
