@@ -8,9 +8,17 @@ public class player : MonoBehaviour
 
     private float horisontaalinenPyorinta = 0;
 
+
+    public float hyppyvoima = 0f;
+    public float painovoima = 0f;
+
+    private bool isGrounded = true;
+    
+
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -23,14 +31,24 @@ public class player : MonoBehaviour
         Vector3 nopeus = new Vector3(horizontal, 0, vertical);
         
 
+
         //hiiren x verran pyöriminen
         horisontaalinenPyorinta += Input.GetAxis("Mouse X");
         transform.localRotation = Quaternion.Euler(0, horisontaalinenPyorinta, 0);
         
         nopeus = transform.rotation * nopeus;
-        hahmokontrolleri.Move(nopeus * Time.deltaTime);
 
-        
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        {
+            Debug.Log("hyppy");
+            
+            nopeus.y += hyppyvoima;
+            isGrounded = false;
+        }
+
+        nopeus.y = nopeus.y - painovoima * Time.deltaTime;
+
+        hahmokontrolleri.Move(nopeus * Time.deltaTime);
 
         if (Input.GetAxis("Vertical") != 0)
         {
@@ -42,4 +60,17 @@ public class player : MonoBehaviour
             anim.SetBool("Walk", false);
         }
     }
+
+    
+    /*
+    void OnCollisionStay(Collision collisionInfo)
+    {
+        Debug.Log(collisionInfo.gameObject.name);
+        if (collisionInfo.gameObject.name == "HumanoidBotAvatar_04")
+        {
+            Debug.Log("osuu");
+            isGrounded = true;
+        }
+    }
+    */
 }
