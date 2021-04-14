@@ -231,12 +231,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 1.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &438232516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6322b3de300184685ffe649c342648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horisontaalinenPyorinta: 0
 --- !u!136 &438232517
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -259,10 +260,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4286685
-  m_Height: 0.857337
+  m_Radius: 0.279428
+  m_Height: 1.0293317
   m_Direction: 1
-  m_Center: {x: 0.15066051, y: 2.9154222, z: 1.1704345}
+  m_Center: {x: -0.21939135, y: 2.9075732, z: 1.5674243}
 --- !u!54 &438232518
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -568,7 +569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5be2c6dc7d0cd11418701026bf971b37, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.71
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5be2c6dc7d0cd11418701026bf971b37, type: 3}
       propertyPath: m_LocalPosition.z
