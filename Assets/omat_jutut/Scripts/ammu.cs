@@ -7,12 +7,12 @@ public class ammu : MonoBehaviour
     public float luodinNopeus = 10f;
     public GameObject luotiPrefab;
     private GameObject ammus = null;
-    Camera FPSCamera;
+    public Camera FPSCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        FPSCamera = Camera.main;
+        //FPSCamera = Camera.main;
     }
 
     // Update is called once per frame
