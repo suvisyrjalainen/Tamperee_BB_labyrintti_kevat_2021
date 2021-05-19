@@ -54,10 +54,22 @@ public class player : MonoBehaviour
         {
             anim.SetBool("Walk", true);
             
+            if (Input.GetKeyDown("left shift"))
+            {
+                anim.SetBool("Run", true);
+                anim.SetBool("Walk", false);
+            }
+            else
+            {
+                anim.SetBool("Run", false);
+            }
+
         }
         else
         {
             anim.SetBool("Walk", false);
+            anim.SetBool("Run", false);
+
         }
     }
 
