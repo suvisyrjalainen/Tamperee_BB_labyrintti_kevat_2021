@@ -14,8 +14,6 @@ public class otokka1 : MonoBehaviour
     void Start()
     {
         layer_index = LayerMask.GetMask("wall");
-        layer_index = LayerMask.GetMask("bullet");
-        print(layer_index);
     }
 
     // Update is called once per frame
@@ -23,7 +21,7 @@ public class otokka1 : MonoBehaviour
     {
         //eteenpäin meno
         CharacterController hahmokontrolleri = GetComponent<CharacterController>();
-        Vector3 nopeus = new Vector3(0, 0, 1);
+        Vector3 nopeus = new Vector3(0, -1, 1);
 
         //kääntyminen
         transform.localRotation = Quaternion.Euler(0, horisontaalinenPyorinta, 0);
@@ -43,10 +41,7 @@ public class otokka1 : MonoBehaviour
             horisontaalinenPyorinta += kaannos;
         }
 
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("bullet"))
-        {
-            print("minuun osui");
-        }
+        
 
         if (collision.gameObject.tag == "bullet")
         {
